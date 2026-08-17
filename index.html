@@ -3,11 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Father and Son Trades, LLC - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Father and Son Trades, LLC - Mobile Mechanic & Handyman</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #12181b;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(22, 30, 34, 0.95);
+            padding: 15px 40px;
+            border-bottom: 2px solid #222d32;
+            z-index: 1000;
+        }
+
+        /* Image Logo Styles */
+        .site-logo-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3f6e4a;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Navigation Links */
+        .site-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .site-nav a {
+            text-decoration: none;
+            color: #d1d8dc;
+            font-size: 18px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a.active {
+            color: #4e9f3d;
+        }
+
+        /* Section Layout Common Styles */
+        section {
+            position: relative;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+
+        /* Section 1: Home (IMG_8921.jpeg slightly greyed out) */
+        #home {
+            background-image: linear-gradient(rgba(18, 24, 27, 0.75), rgba(18, 24, 27, 0.75)), url('IMG_8921.jpeg');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero-phone {
+            display: block;
+            font-size: 42px;
+            font-weight: 700;
+            color: #4e9f3d;
+            text-decoration: none;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            margin-bottom: 25px;
+            transition: color 0.2s;
+        }
+
+        .hero-phone:hover {
+            color: #62b750;
+        }
+
+        /* Navigation Buttons */
+        .page-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4e9f3d;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #3f8231;
+        }
+
+        /* Section 2: About Us (IMG_8922.jpeg slightly whited out) */
+        #about {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('IMG_8922.jpeg');
+            justify-content: center;
+        }
+
+        #about .card {
+            background: rgba(20, 20, 20, 0.85);
+            color: #ffffff;
+        }
+
+        /* Section 3: Services (IMG_8923.jpeg slightly greyed out) */
+        #services {
+            background-image: linear-gradient(rgba(18, 24, 27, 0.75), rgba(18, 24, 27, 0.75)), url('IMG_8923.jpeg');
+            justify-content: center;
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(22, 30, 34, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            border: 1px solid #2c3a40;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #4e9f3d;
+        }
+
+        .card p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #d1d8dc;
+        }
+
+        .services-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        .services-list li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #d1d8dc;
+        }
+
+        .pricing-note {
+            font-weight: 700;
+            color: #4e9f3d;
+            font-size: 20px !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .site-header {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-phone {
+                font-size: 32px;
+            }
+
+            section {
+                padding-top: 130px;
+            }
+        }
+    </style>
 </head>
-<body class="page-home">
+<body>
 
     <!-- Header & Navigation -->
     <header class="site-header">
@@ -16,24 +228,46 @@
         </div>
         <nav class="site-nav">
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section (Page 1: IMG_8921.jpeg slightly greyed out) -->
-    <section class="hero page-1-hero">
+    <!-- Page 1: Home Section -->
+    <section id="home">
         <div class="hero-content">
             <h1>Trusted Mobile Mechanic Service in Milwaukee</h1>
             <a href="tel:4142521552" class="hero-phone">(414) 252-1552</a>
             
-            <!-- Functioning navigation buttons -->
             <div class="page-buttons">
-                <a href="about.html" class="btn">About Us</a>
-                <a href="services.html" class="btn">Our Services</a>
+                <a href="#about" class="btn">About Us</a>
+                <a href="#services" class="btn">Our Services</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Page 2: About Us Section -->
+    <section id="about">
+        <div class="card">
+            <h2>About Us</h2>
+            <p>Jeremiah is a reliable handyman and mobile mechanic who prides himself in being a hard-working, skilled, highly reliable handyman and mobile mechanic.</p>
+        </div>
+    </section>
+
+    <!-- Page 3: Services Section -->
+    <section id="services">
+        <div class="card">
+            <h2>Basic Services</h2>
+            <ul class="services-list">
+                <li>Oil changes</li>
+                <li>Fluid changes</li>
+                <li>Brake services</li>
+                <li>Diagnostics</li>
+                <li>General handyman repairs</li>
+            </ul>
+            <p class="pricing-note">Send us a message for pricing!</p>
         </div>
     </section>
 
