@@ -91,12 +91,24 @@ h1, h2 {
 }
 
 .navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-head);
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--white);
   letter-spacing: 0.01em;
   white-space: nowrap;
+}
+
+.navbar__logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--pine-pale);
+  flex-shrink: 0;
 }
 
 .navbar__menu {
@@ -297,17 +309,6 @@ h1, h2 {
    Section 1: Home
    ============================================ */
 
-.section--home {
-  justify-content: flex-start;
-  padding-bottom: 60px;
-}
-
-.section--home .section__bg {
-  background-size: contain;
-  background-position: center 40%;
-  background-color: var(--ink);
-}
-
 .home__content {
   position: relative;
   z-index: 2;
@@ -344,36 +345,6 @@ h1, h2 {
 
 .home__cta {
   margin-top: 4px;
-}
-
-.scroll-cue {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  width: 28px;
-  height: 44px;
-  border: 2px solid rgba(255, 255, 255, 0.55);
-  border-radius: 14px;
-}
-
-.scroll-cue span {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 8px;
-  background: var(--white);
-  border-radius: 2px;
-  animation: scrollcue 1.8s ease infinite;
-}
-
-@keyframes scrollcue {
-  0% { opacity: 1; top: 8px; }
-  70% { opacity: 0; top: 22px; }
-  100% { opacity: 0; top: 22px; }
 }
 
 /* ============================================
