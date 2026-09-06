@@ -81,6 +81,7 @@ h1, h2 {
 }
 
 .navbar__inner {
+  position: relative;
   max-width: 1200px;
   height: 100%;
   margin: 0 auto;
@@ -91,28 +92,33 @@ h1, h2 {
 }
 
 .navbar__brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   font-family: var(--font-head);
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--white);
   letter-spacing: 0.01em;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 42%;
 }
 
 .navbar__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
-  width: 34px !important;
-  height: 34px !important;
-  max-width: 34px;
-  max-height: 34px;
+  width: 52px !important;
+  height: 52px !important;
+  max-width: 52px;
+  max-height: 52px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
   border: 2px solid var(--pine-pale);
   flex-shrink: 0;
+  z-index: 1;
 }
 
 .navbar__menu {
@@ -454,6 +460,18 @@ h1, h2 {
 
   .navbar__toggle {
     display: flex;
+  }
+
+  .navbar__brand {
+    max-width: 40%;
+    font-size: 1rem;
+  }
+
+  .navbar__logo {
+    width: 40px !important;
+    height: 40px !important;
+    max-width: 40px;
+    max-height: 40px;
   }
 
   .nav-link {
