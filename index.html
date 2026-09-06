@@ -1,275 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Father and Son Trades, LLC - Mobile Mechanic & Handyman</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        /* Global Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #12181b;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Header Styles */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgba(22, 30, 34, 0.95);
-            padding: 15px 40px;
-            border-bottom: 2px solid #222d32;
-            z-index: 1000;
-        }
-
-        /* Image Logo Styles */
-        .site-logo-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #3f6e4a;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        /* Navigation Links */
-        .site-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .site-nav a {
-            text-decoration: none;
-            color: #d1d8dc;
-            font-size: 18px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .site-nav a:hover,
-        .site-nav a.active {
-            color: #4e9f3d;
-        }
-
-        /* Section Layout Common Styles */
-        section {
-            position: relative;
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
-            padding-top: 80px; /* Offset for fixed header */
-        }
-
-        /* Section 1: Home (IMG_8921.jpeg slightly greyed out) */
-        #home {
-            background-image: linear-gradient(rgba(18, 24, 27, 0.75), rgba(18, 24, 27, 0.75)), url('IMG_8921.jpeg');
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-        }
-
-        .hero-content h1 {
-            font-size: 56px;
-            font-weight: 900;
-            line-height: 1.1;
-            color: #ffffff;
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-        }
-
-        .hero-phone {
-            display: block;
-            font-size: 42px;
-            font-weight: 700;
-            color: #4e9f3d;
-            text-decoration: none;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            margin-bottom: 25px;
-            transition: color 0.2s;
-        }
-
-        .hero-phone:hover {
-            color: #62b750;
-        }
-
-        /* Navigation Buttons */
-        .page-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #4e9f3d;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #3f8231;
-        }
-
-        /* Section 2: About Us (IMG_8922.jpeg slightly whited out) */
-        #about {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('IMG_8922.jpeg');
-            justify-content: center;
-        }
-
-        #about .card {
-            background: rgba(20, 20, 20, 0.85);
-            color: #ffffff;
-        }
-
-        /* Section 3: Services (IMG_8923.jpeg slightly greyed out) */
-        #services {
-            background-image: linear-gradient(rgba(18, 24, 27, 0.75), rgba(18, 24, 27, 0.75)), url('IMG_8923.jpeg');
-            justify-content: center;
-        }
-
-        /* Card Styles */
-        .card {
-            background: rgba(22, 30, 34, 0.9);
-            padding: 40px;
-            border-radius: 8px;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            border: 1px solid #2c3a40;
-            position: relative;
-            z-index: 2;
-        }
-
-        .card h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #4e9f3d;
-        }
-
-        .card p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #d1d8dc;
-        }
-
-        .services-list {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 25px;
-        }
-
-        .services-list li {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #d1d8dc;
-        }
-
-        .pricing-note {
-            font-weight: 700;
-            color: #4e9f3d;
-            font-size: 20px !important;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .site-header {
-                flex-direction: column;
-                gap: 10px;
-                padding: 10px;
-            }
-            
-            .hero-content h1 {
-                font-size: 36px;
-            }
-
-            .hero-phone {
-                font-size: 32px;
-            }
-
-            section {
-                padding-top: 130px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Father and Son Trades, LLC | Mobile Mechanic &amp; Handyman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header & Navigation -->
-    <header class="site-header">
-        <div class="logo-container">
-            <img src="IMG_8919.jpeg" alt="Father and Son Trades, LLC Logo" class="site-logo-image">
-        </div>
-        <nav class="site-nav">
-            <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#home" class="navbar__brand">Father and Son Trades, LLC</a>
 
-    <!-- Page 1: Home Section -->
-    <section id="home">
-        <div class="hero-content">
-            <h1>Trusted Mobile Mechanic Service in Milwaukee</h1>
-            <a href="tel:4142521552" class="hero-phone">(414) 252-1552</a>
-            
-            <div class="page-buttons">
-                <a href="#about" class="btn">About Us</a>
-                <a href="#services" class="btn">Our Services</a>
-            </div>
-        </div>
-    </section>
+    <button class="navbar__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
 
-    <!-- Page 2: About Us Section -->
-    <section id="about">
-        <div class="card">
-            <h2>About Us</h2>
-            <p>Jeremiah is a reliable handyman and mobile mechanic who prides himself in being a hard-working, skilled, highly reliable handyman and mobile mechanic.</p>
-        </div>
-    </section>
+    <nav class="navbar__menu" id="navMenu">
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#about" class="nav-link">About Us</a>
+      <a href="#contact" class="nav-link">Contact Us</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- Page 3: Services Section -->
-    <section id="services">
-        <div class="card">
-            <h2>Basic Services</h2>
-            <ul class="services-list">
-                <li>Oil changes</li>
-                <li>Fluid changes</li>
-                <li>Brake services</li>
-                <li>Diagnostics</li>
-                <li>General handyman repairs</li>
-            </ul>
-            <p class="pricing-note">Send us a message for pricing!</p>
-        </div>
-    </section>
+<main>
 
+  <!-- SECTION 1: HOME -->
+  <section class="section section--home" id="home">
+    <div class="section__bg" style="background-image:url('logo.jpeg');"></div>
+    <div class="section__scrim section__scrim--dark"></div>
+
+    <div class="home__content">
+      <p class="home__eyebrow">Serving the Milwaukee area</p>
+      <h1 class="home__tagline">Honest hands. Fair prices. Work done right.</h1>
+      <p class="home__sub">Mobile mechanic and home handyman services, brought straight to your driveway.</p>
+      <a href="#contact" class="btn btn--primary home__cta">Get a Quote</a>
+    </div>
+
+    <a href="#pricing" class="scroll-cue" aria-label="Scroll to pricing">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- SECTION 2: PRICING -->
+  <section class="section section--pricing" id="pricing">
+    <div class="section__bg" style="background-image:url('IMG_8921.jpeg');"></div>
+    <div class="section__scrim section__scrim--green"></div>
+
+    <div class="section__content">
+      <p class="section__eyebrow">What we offer</p>
+      <h2 class="section__title">Pricing</h2>
+      <p class="section__intro">Every job is different, so every quote is too. Reach out and we'll give you a straight answer &mdash; no surprises, no upsells.</p>
+
+      <ul class="service-list">
+        <li class="service-list__item">
+          <span class="service-list__name">Oil Change</span>
+          <span class="service-list__note">Contact Us for Pricing</span>
+        </li>
+        <li class="service-list__item">
+          <span class="service-list__name">Wiper Blade Replacement</span>
+          <span class="service-list__note">Contact Us for Pricing</span>
+        </li>
+        <li class="service-list__item">
+          <span class="service-list__name">Battery Testing &amp; Replacement</span>
+          <span class="service-list__note">Contact Us for Pricing</span>
+        </li>
+        <li class="service-list__item">
+          <span class="service-list__name">Brake Pad Replacement</span>
+          <span class="service-list__note">Contact Us for Pricing</span>
+        </li>
+        <li class="service-list__item">
+          <span class="service-list__name">Fluid Top-Off &amp; Inspection</span>
+          <span class="service-list__note">Contact Us for Pricing</span>
+        </li>
+        <li class="service-list__item">
+          <span class="service-list__name">Tire Rotation</span>
+          <span class="service-list__note">Contact Us for Pricing</span>
+        </li>
+        <li class="service-list__item">
+          <span class="service-list__name">Belt &amp; Hose Inspection</span>
+          <span class="service-list__note">Contact Us for Pricing</span>
+        </li>
+        <li class="service-list__item">
+          <span class="service-list__name">Home Handyman Services</span>
+          <span class="service-list__note">Contact Us for Pricing</span>
+        </li>
+      </ul>
+
+      <p class="section__footnote">Don't see what you need? We probably still do it &mdash; just ask.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: ABOUT US -->
+  <section class="section section--about" id="about">
+    <div class="section__bg" style="background-image:url('IMG_8922.jpeg');"></div>
+    <div class="section__scrim section__scrim--light"></div>
+
+    <div class="section__content section__content--dark-text">
+      <p class="section__eyebrow section__eyebrow--dark">The person behind the wrench</p>
+      <h2 class="section__title section__title--dark">About Us</h2>
+
+      <div class="about__body">
+        <p>Father and Son Trades was started by <strong>Jeremiah Kinikin</strong>, who has spent years working as both a mobile mechanic and a home handyman. He's turned wrenches in driveways and fixed what needed fixing in living rooms &mdash; whatever the job called for.</p>
+        <p>Jeremiah built this business on three things: showing up when he says he will, telling customers the truth about what a job actually needs, and charging a fair price for it. No inflated estimates, no unnecessary work.</p>
+        <p>His hope is simple &mdash; to build something that lasts. A business his family can be proud of, and one day, hand down.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: CONTACT US -->
+  <section class="section section--contact" id="contact">
+    <div class="section__bg" style="background-image:url('logo.jpeg');"></div>
+    <div class="section__scrim section__scrim--dark"></div>
+
+    <div class="section__content">
+      <p class="section__eyebrow">Ready when you are</p>
+      <h2 class="section__title">Contact Us</h2>
+      <p class="section__intro">Give us a call and let's talk about what you need done.</p>
+      <a href="tel:14142521552" class="btn btn--primary contact__cta">Call Us Now &mdash; (414) 252-1552</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Father and Son Trades, LLC. All rights reserved.</p>
+  <p>Licensed and insured. Services performed at customer's discretion; final pricing confirmed prior to work.</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Solid navbar once the user scrolls past the hero
+  const navbar = document.getElementById('navbar');
+  const homeSection = document.getElementById('home');
+  const navObserver = new IntersectionObserver(
+    ([entry]) => navbar.classList.toggle('navbar--solid', !entry.isIntersecting),
+    { threshold: 0.85 }
+  );
+  navObserver.observe(homeSection);
+
+  // Mobile menu toggle
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('navbar__menu--open');
+    navToggle.classList.toggle('navbar__toggle--open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close mobile menu after choosing a link, and smooth-scroll
+  document.querySelectorAll('.nav-link, .navbar__brand').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('navbar__menu--open');
+      navToggle.classList.remove('navbar__toggle--open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Highlight the current section's nav link
+  const sections = document.querySelectorAll('main .section');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('nav-link--active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, { threshold: 0.6 });
+  sections.forEach(section => sectionObserver.observe(section));
+</script>
 </body>
 </html>
